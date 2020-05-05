@@ -1,0 +1,40 @@
+<div class="card"
+     *ngIf='product'>
+    <div class="card-header" style="font-weight: bold; font-size: xx-large;">
+        {{product.productName}}
+    </div>
+    <div class="card-body">
+        <div class="row">
+
+            <div class="col-md-1">
+                <img src={{product.imageUrl}}
+                     title={{product.productName}}
+                     style.width.px={{imageWidth}}
+                     style.margin.px={{imageMargin}}>
+
+                <div class="price" style="margin-top: 15px;">{{product.price | currency:'EUR':'symbol':'1.2-2' | lowercase}}</div>
+                <button class='btn btn-success'>Add to cart</button>
+
+            </div>
+            <div class="col-md-2">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <pm-star [rating]="product.starRating"> </pm-star>
+                    </li>
+                    <li class="list-group-item text">Product code: {{product.productCode}}</li>
+                    <li class="list-group-item text">Released: {{product.releaseDate}}</li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class='card-footer'>
+        <button class='btn btn-outline-secondary'
+                (click)='onBack()'
+                style="width:80px">
+            <i class='fa fa-chevron-left'></i> Back
+        </button>
+    </div>
+</div>
